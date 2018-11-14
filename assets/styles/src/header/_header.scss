@@ -1,0 +1,15 @@
+.site-header {
+	background-color: #fff;
+	box-shadow: 0 0 20px rgba(0,0,0,0.05);
+	padding: 0 30px;
+}
+
+@import 'title-area';
+
+@media only screen and (min-width: 960px) {
+	.site-header {
+		position: fixed;
+		width: 100%;
+		z-index: 9999;
+	}
+}
