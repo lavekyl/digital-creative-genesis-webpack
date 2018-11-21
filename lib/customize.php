@@ -133,6 +133,23 @@ function dcg_customizer_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
+		'dcg_navigation_fixed',
+		array(
+			'default'           => 'false',
+			'sanitize_callback' => 'dcg_sanitize_input',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'dcg_navigation_fixed',
+		array(
+			'section' => 'dcg_display_options',
+			'label'   => 'Fixed Navigation?',
+			'type'    => 'checkbox',
+		)
+	);
+
+	$wp_customize->add_setting(
 		'dcg_navigation_layout_select',
 		array(
 			'default'           => 'below',
