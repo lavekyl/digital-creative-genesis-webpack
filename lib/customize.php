@@ -175,24 +175,6 @@ function dcg_customizer_register( $wp_customize ) {
 		)
 	);
 
-	// FOOTER LAYOUT START.
-	$wp_customize->add_setting(
-		'dcg_display_footer',
-		array(
-			'default'           => 'true',
-			'sanitize_callback' => 'dcg_sanitize_input',
-			'transport'         => 'refresh',
-		)
-	);
-	$wp_customize->add_control(
-		'dcg_display_footer',
-		array(
-			'section' => 'dcg_display_options',
-			'label'   => 'Display Footer Widgets?',
-			'type'    => 'checkbox',
-		)
-	);
-
 	// COPYRIGHT MESSAGE START.
 	$wp_customize->add_setting(
 		'dcg_footer_copyright_text',
