@@ -10,6 +10,29 @@
  * @link    https://lavertycreative.com/
  */
 
+// If statement for menu placement.
+if ( get_theme_mod( 'dcg_navigation_layout_select' ) === 'centered' ) {
+	// Add support for right and left menu & rename top menu.
+	add_theme_support(
+		'genesis-menus',
+		array(
+			'primary'      => __( 'Above Header Menu', 'digital-creative-genesis' ),
+			'header-left'  => __( 'Header Left', 'digital-creative-genesis' ),
+			'header-right' => __( 'Header Right', 'digital-creative-genesis' ),
+			'secondary'    => __( 'Footer Menu', 'digital-creative-genesis' ),
+		)
+	);
+} else {
+	// Rename primary and secondary navigation menus.
+	add_theme_support(
+		'genesis-menus',
+		array(
+			'primary'   => __( 'Header Menu', 'digital-creative-genesis' ),
+			'secondary' => __( 'Footer Menu', 'digital-creative-genesis' ),
+		)
+	);
+}
+
 /**
  * Define our standard responsive menu settings.
  */
@@ -58,16 +81,6 @@ function dcg_centered_logo_responsive_menu_settings() {
 }
 
 /**
- * Reposition the primary navigation menu.
- */
-if ( get_theme_mod( 'dcg_navigation_layout_select' ) === 'centered' ) {
-	remove_action( 'genesis_after_header', 'genesis_do_nav' );
-	add_action( 'genesis_before_header', 'genesis_do_nav', 7 );
-	add_action( 'genesis_header', 'dcg_header_left_menu', 6 );
-	add_action( 'genesis_header', 'dcg_header_right_menu', 9 );
-}
-
-/**
  * Hook menu to left of logo.
  *
  * @since 1.0.0
@@ -99,27 +112,14 @@ function dcg_header_right_menu() {
 
 }
 
-// If statement for menu placement.
+/**
+ * Reposition the primary navigation menu.
+ */
 if ( get_theme_mod( 'dcg_navigation_layout_select' ) === 'centered' ) {
-	// Add support for right and left menu & rename top menu.
-	add_theme_support(
-		'genesis-menus',
-		array(
-			'primary'      => __( 'Above Header Menu', 'digital-creative-genesis' ),
-			'header-left'  => __( 'Header Left', 'digital-creative-genesis' ),
-			'header-right' => __( 'Header Right', 'digital-creative-genesis' ),
-			'secondary'    => __( 'Footer Menu', 'digital-creative-genesis' ),
-		)
-	);
-} else {
-	// Rename primary and secondary navigation menus.
-	add_theme_support(
-		'genesis-menus',
-		array(
-			'primary'   => __( 'Header Menu', 'digital-creative-genesis' ),
-			'secondary' => __( 'Footer Menu', 'digital-creative-genesis' ),
-		)
-	);
+	remove_action( 'genesis_after_header', 'genesis_do_nav' );
+	add_action( 'genesis_before_header', 'genesis_do_nav', 7 );
+	add_action( 'genesis_header', 'dcg_header_left_menu', 6 );
+	add_action( 'genesis_header', 'dcg_header_right_menu', 9 );
 }
 
 // Reposition the secondary navigation menu.
