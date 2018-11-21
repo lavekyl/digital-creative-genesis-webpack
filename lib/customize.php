@@ -147,7 +147,6 @@ function dcg_customizer_register( $wp_customize ) {
 			'label'   => 'Navigation Location',
 			'type'    => 'select',
 			'choices' => array(
-				'top'      => 'Above the header',
 				'right'    => 'Right of the logo',
 				'below'    => 'Below the header',
 				'centered' => 'Centered logo in nav',
