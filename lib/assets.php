@@ -22,7 +22,6 @@ function dcg_enqueue_scripts_styles() {
 	wp_enqueue_style( 'dashicons' );
 	wp_enqueue_style( 'digital-creative-genesis-custom-style', get_stylesheet_directory_uri() . "/assets/styles/build/style{$suffix}.css", array(), CHILD_THEME_VERSION );
 
-	wp_enqueue_script( 'digital-creative-genesis-fonts', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', array(), CHILD_THEME_VERSION, true );
 	wp_enqueue_script( 'digital-creative-genesis-custom-js', get_stylesheet_directory_uri() . "/assets/scripts/build/scripts{$suffix}.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
 	wp_enqueue_script( 'digital-creative-genesis-responsive-menu', get_stylesheet_directory_uri() . "/assets/scripts/build/responsive-menus{$suffix}.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
 

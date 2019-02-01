@@ -25,18 +25,17 @@ function js_defer_attr( $tag ) {
 	}
 }
 
-add_action( 'wp_footer', 'gfont_loader' );
+// Remove Query String from Static Resources.
+add_filter( 'style_loader_src', 'remove_css_js_ver', 10, 2 );
+add_filter( 'script_loader_src', 'remove_css_js_ver', 10, 2 );
 /**
- * Add the fonts via web font loader.
+ * Function to remove query strings
+ *
+ * @param src $src query strings.
  */
-function gfont_loader() {
-	// Can also be added in Theme Settings under Genesis in the admin dashboard. ?>
-	<script>
-	WebFont.load({
-		google: {
-			families: ['Crimson Text', 'Open Sans']
-		}
-	});
-	</script>
-	<?php
+function remove_css_js_ver( $src ) {
+	if ( strpos( $src, '?ver=' ) ) {
+		$src = remove_query_arg( 'ver', $src );
+		return $src;
+	}
 }
